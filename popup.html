@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RB automat</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="container">
+    <div class="logo_container">
+        <img src="./images/logo.png" class="logo" alt="RB Logo"/>
+    </div>
+    <div class="title">
+        Zadávání hromadných plateb
+    </div>
+
+    <div id="runningContainer">
+        <div class="runningTitle">
+            Zadávání plateb
+        </div>
+        <div class="runningInfo">
+            <span id="currentCounter">0</span> / <span id="totalCount">0</span>
+        </div>
+        <div class="runningStopButtonContainer">
+            <button class="stopButton">Zrušit</button>
+        </div>
+    </div>
+
+    <div id="doneContainer">
+        Hotovo<br/><br/>
+        <button id="resetButton" class="button">
+            Zpìt
+        </button>
+    </div>
+
+    <div id="inputContainer">
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title">Pøíprava plateb</div>
+                <p class="step-description">Pøipravte si platby v Excel nebo podobném tabulkovém programu podle
+                    vzoru</p>
+                <p class="step-description">
+                    <a href="./vzor.xlsx">vzor plateb</a>
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">Vytvoøte novou manuální hromadnou platbu</div>
+                <p class="step-description">V RB bankovnictví kliknìte nahoøe na platby a v levém menu úètu
+                    úplnì na konci na Hromadné platby. Zde by jste mìli vidìt možnost <strong>Manuální hromadná
+                        platba</strong>. Zde vytvoøte novou hromadnou platbu.</p>
+            </div>
+
+            <!-- Další kroky by následovaly podobnì... -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">Zadání plateb</div>
+                <ul>
+                    <li>
+                        V excelu oznaète všechny pøipravené platby vèetnì názvù sloupcù na prvním øádku
+                    </li>
+                    <li>
+                        Zkopírujte platby (ctrl + c)
+                    </li>
+                    <li>
+                        Vložte platby do tohoto textového pole (ctrl + v)
+                    </li>
+                </ul>
+
+                <textarea id="inputData" class="input"></textarea>
+
+                <p id="note" class="note">
+                    Poèet plateb: <span id="count">0</span>
+                </p>
+
+                <p id="error" class="error">
+                    Chyba vstupu
+                </p>
+            </div>
+
+        </div>
+
+        <button class="button" id="startButton" disabled>Start</button>
+    </div>
+</div>
+
+<script src="./helpers/dataManager.js"></script>
+<script src="./helpers/validators.js"></script>
+<script src="./helpers/parsingFunctions.js"></script>
+<script src="./popup.js"></script>
+</body>
+</html>

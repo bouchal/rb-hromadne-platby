@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "RB Hromadné platby",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "https://online.rb.cz/web/#/payments/batches/new/dpo"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://online.rb.cz/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

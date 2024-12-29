@@ -1,3 +1,5 @@
+
+
 let state = {
     isScriptRunning: false,
     payments: [],
@@ -34,17 +36,17 @@ chrome.runtime.onMessage.addListener(
                 sendResponse(state)
                 return true
             case "forceStop":
-                resetState()
+                resetState();
                 state.forceStop = true
                 sendState().then()
                 return
             case "reset":
                 resetState()
                 state.forceStop = true
-                break
+                break;
         }
     }
-)
+);
 
 async function sendState() {
     chrome.runtime.sendMessage({action: "stateUpdate", state});
@@ -54,24 +56,7 @@ async function sendItIsDone() {
     chrome.runtime.sendMessage({action: "done"});
 }
 
-// Funkce pro zobrazení notifikace
-function showNotification(title, message, notificationId = null) {
-    const options = {
-        type: "basic",
-        iconUrl: "icon.png", // Ikona pro notifikaci
-        title: title,
-        message: message
-    }
 
-    chrome.notifications.create(notificationId, options)
-}
-
-// Zachycení kliknutí na notifikaci
-chrome.notifications.onClicked.addListener(function(notificationId) {
-    if (notificationId === "process_done") {
-        chrome.action.openPopup()
-    }
-})
 
 function simulateTyping(input, text) {
     // Nastavení focus na input
@@ -80,20 +65,20 @@ function simulateTyping(input, text) {
     // Simulace psaní textu znak po znaku
     text.split('').forEach(char => {
         // Vytvoření KeyboardEvent
-        const event = new KeyboardEvent('keydown', { key: char, keyCode: char.charCodeAt(0), which: char.charCodeAt(0), bubbles: true })
+        const event = new KeyboardEvent('keydown', { key: char, keyCode: char.charCodeAt(0), which: char.charCodeAt(0), bubbles: true });
 
         // Dispatch event
-        input.dispatchEvent(event)
+        input.dispatchEvent(event);
 
         // Přidání znaku do hodnoty inputu
-        input.value += char
+        input.value += char;
 
         // Vytvoření události input
-        const inputEvent = new Event('input', { bubbles: true })
+        const inputEvent = new Event('input', { bubbles: true });
 
         // Dispatch input event
-        input.dispatchEvent(inputEvent)
-    })
+        input.dispatchEvent(inputEvent);
+    });
 }
 
 async function startListing(payments) {
@@ -104,32 +89,24 @@ async function startListing(payments) {
 
     await sendState()
 
-    for (const payment of payments) {
+    for(const payment of payments) {
         if (state.forceStop) {
-            break
+            break;
         }
 
         console.log("Začátek platby a čekání až bude ready")
-        try {
-            await waitUntilReady()
+        await waitUntilReady()
 
-            console.log("Zadávání platby")
-            addPayment(payment)
-            await wait(2000)
+        console.log("Zadávání platby")
+        addPayment(payment)
+        await wait(2000)
 
-            if (state.forceStop) {
-                break
-            }
-
-            console.log("Odesílání platby")
-            submitPayment()
-        } catch (error) {
-            console.error("Chyba při zpracování platby:", error.message);
-            showNotification("Chyba při zpracování platby", `Platba ${payment.bankAccount} nebyla zadána. Chyba: ${error.message}`);
-            state.forceStop = true // Přerušit proces při chybě
-            await sendState()
-            return
+        if (state.forceStop) {
+            break;
         }
+
+        console.log("Odesílání platby")
+        submitPayment()
 
         console.log("Hotovo")
         await sendState()
@@ -143,30 +120,29 @@ async function startListing(payments) {
     }
 
     await sendItIsDone()
-    showNotification("Zpracování dokončeno", "Všechny platby byly úspěšně zadány.", "process_done")
 }
 
 function parseBankAccountNumber(bankAccount) {
     console.log(bankAccount)
-    const [left, code] = bankAccount.split('/')
-    let [prefix, number] = left.split('-')
+    const [left, code] = bankAccount.split('/');
+    let [prefix, number] = left.split('-');
 
     if (!number) {
-        number = prefix
-        prefix = ''
+        number = prefix;
+        prefix = '';
     }
 
     return {
         prefix,
         number,
         code
-    }
+    };
 }
 
 async function waitUntilReady() {
     return new Promise((resolve) => {
         setTimeout(() => {
-            const creditAccountNumber = document.querySelector('input[xid="creditAccountNumber"]')
+            const creditAccountNumber = document.querySelector('input[xid="creditAccountNumber"]');
 
             if (creditAccountNumber && creditAccountNumber.value.length === 0) {
                 resolve()
@@ -182,26 +158,26 @@ function wait(ms) {
 }
 
 function submitPayment () {
-    let button = document.querySelector('button[xid="saveAndAdd "]')
+    let button = document.querySelector('button[xid="saveAndAdd "]');
 
     button.click()
 }
 
 function addPayment(payment) {
-    const creditAccountNumberPrefix = document.querySelector('input[xid="creditAccountNumberPrefix"]')
-    const creditAccountNumber = document.querySelector('input[xid="creditAccountNumber"]')
-    const creditBankCode = document.querySelector('input[xid="creditBankCode-searchQuery"]')
+    const creditAccountNumberPrefix = document.querySelector('input[xid="creditAccountNumberPrefix"]');
+    const creditAccountNumber = document.querySelector('input[xid="creditAccountNumber"]');
+    const creditBankCode = document.querySelector('input[xid="creditBankCode-searchQuery"]');
 
-    const amount = document.querySelector('input[xid="amount"]')
+    const amount = document.querySelector('input[xid="amount"]');
 
-    const variableSymbol = document.querySelector('input[xid="variableSymbol"]')
-    const constantSymbol = document.querySelector('input[xid="constantSymbol"]')
-    const specificSymbol = document.querySelector('input[xid="specificSymbol"]')
+    const variableSymbol = document.querySelector('input[xid="variableSymbol"]');
+    const constantSymbol = document.querySelector('input[xid="constantSymbol"]');
+    const specificSymbol = document.querySelector('input[xid="specificSymbol"]');
 
-    const messageForPayee = document.querySelector('textarea[xid="messageForPayee"]')
-    const clientReference = document.querySelector('textarea[xid="clientReference"]')
+    const messageForPayee = document.querySelector('textarea[xid="messageForPayee"]');
+    const clientReference = document.querySelector('textarea[xid="clientReference"]');
 
-    const bankAccount = parseBankAccountNumber(payment.bankAccount)
+    const bankAccount = parseBankAccountNumber(payment.bankAccount);
 
     simulateTyping(creditAccountNumberPrefix, bankAccount.prefix || '')
     simulateTyping(creditAccountNumber, bankAccount.number)

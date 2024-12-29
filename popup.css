@@ -75,9 +75,9 @@ body, html {
 
 .stopButton {
     padding: 10px 20px;
-    background-color: #FF4136; /* Svìtle èervená */
-    color: #FFFFFF; /* Bílá */
-    border: 2px solid #FF4136; /* Svìtle èervená */
+    background-color: #FF4136; /* SvÄ›tle ÄervenÃ¡ */
+    color: #FFFFFF; /* BÃ­lÃ¡ */
+    border: 2px solid #FF4136; /* SvÄ›tle ÄervenÃ¡ */
     font-family: 'Arial', sans-serif;
     font-size: 16px;
     text-transform: uppercase;
@@ -90,11 +90,11 @@ body, html {
 }
 
 .stopButton:hover {
-    background-color: #E82C20; /* Tmavì èervená */
+    background-color: #E82C20; /* TmavÄ› ÄervenÃ¡ */
 }
 
 .stopButton:active {
-    background-color: #FF4136; /* Svìtle èervená */
+    background-color: #FF4136; /* SvÄ›tle ÄervenÃ¡ */
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }

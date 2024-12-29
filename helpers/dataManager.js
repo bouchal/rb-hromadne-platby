@@ -16,7 +16,7 @@ async function getStateFromContent() {
     })
 
     if (!stateFromContent) {
-        throw new Error("Nepodaøilo se naèíst state z content scriptu")
+        throw new Error("NepodaÅ™ilo se naÄÃ­st state z content scriptu")
     }
 
     return stateFromContent

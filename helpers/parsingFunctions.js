@@ -14,7 +14,7 @@ function parseLineToPayment(line, columnIndexes) {
             if (isBankAccountValid(preBankAccount)) {
                 bankAccount = preBankAccount
             } else {
-                throw new Error("Bankovní úèet musí bıt ve formátu 1111-22222222/4444")
+                throw new Error("BankovnÃ­ ÃºÄet musÃ­ bÃ½t ve formÃ¡tu 1111-22222222/4444")
             }
         }
     }
@@ -26,7 +26,7 @@ function parseLineToPayment(line, columnIndexes) {
             if (isAmountValid(preAmount)) {
                 amount = preAmount
             } else {
-                throw new Error("Èástka musí bıt pozitivní èíslo s teèkou nebo èárkou oddìlující desetinná místa.")
+                throw new Error("ÄŒÃ¡stka musÃ­ bÃ½t pozitivnÃ­ ÄÃ­slo s teÄkou nebo ÄÃ¡rkou oddÄ›lujÃ­cÃ­ desetinnÃ¡ mÃ­sta.")
             }
         }
     }
@@ -38,7 +38,7 @@ function parseLineToPayment(line, columnIndexes) {
             if (isSymbolValid(preVs)) {
                 vs = preVs
             } else {
-                throw new Error("VS musí obsahovat pouze èíselné znaky a maximálnì 10 znakù")
+                throw new Error("VS musÃ­ obsahovat pouze ÄÃ­selnÃ© znaky a maximÃ¡lnÄ› 10 znakÅ¯")
             }
         }
     }
@@ -50,7 +50,7 @@ function parseLineToPayment(line, columnIndexes) {
             if (isSymbolValid(preCs)) {
                 cs = preCs
             } else {
-                throw new Error("CS musí obsahovat pouze èíselné znaky a maximálnì 10 znakù")
+                throw new Error("CS musÃ­ obsahovat pouze ÄÃ­selnÃ© znaky a maximÃ¡lnÄ› 10 znakÅ¯")
             }
         }
     }
@@ -62,7 +62,7 @@ function parseLineToPayment(line, columnIndexes) {
             if (isSymbolValid(preSs)) {
                 ss = preSs
             } else {
-                throw new Error("SS musí obsahovat pouze èíselné znaky a maximálnì 10 znakù")
+                throw new Error("SS musÃ­ obsahovat pouze ÄÃ­selnÃ© znaky a maximÃ¡lnÄ› 10 znakÅ¯")
             }
         }
     }
@@ -74,7 +74,7 @@ function parseLineToPayment(line, columnIndexes) {
             if (isMessageValid(preMessage)) {
                 message = preMessage
             } else {
-                throw new Error("V poli ZPRÁVA mùete pouít i èeské háèky a èárky a nìkteré další znaky (závorky, èárky, støedníky, lomítka apod.).")
+                throw new Error("V poli ZPRÃVA mÅ¯Å¾ete pouÅ¾Ã­t i ÄeskÃ© hÃ¡Äky a ÄÃ¡rky a nÄ›kterÃ© dalÅ¡Ã­ znaky (zÃ¡vorky, ÄÃ¡rky, stÅ™ednÃ­ky, lomÃ­tka apod.).")
             }
         }
     }
@@ -86,7 +86,7 @@ function parseLineToPayment(line, columnIndexes) {
             if (isMessageValid(preNote)) {
                 note = preNote
             } else {
-                throw new Error("V poli POZNÁMKA mùete pouít i èeské háèky a èárky a nìkteré další znaky (závorky, èárky, støedníky, lomítka apod.).")
+                throw new Error("V poli POZNÃMKA mÅ¯Å¾ete pouÅ¾Ã­t i ÄeskÃ© hÃ¡Äky a ÄÃ¡rky a nÄ›kterÃ© dalÅ¡Ã­ znaky (zÃ¡vorky, ÄÃ¡rky, stÅ™ednÃ­ky, lomÃ­tka apod.).")
             }
         }
     }

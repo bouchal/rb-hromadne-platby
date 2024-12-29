@@ -39,14 +39,14 @@ function isBankAccountValid(bankAccount) {
 }
 
 function isAmountValid(amount) {
-    // Kontrola, jestli je vstup validní èíslo s monımi desetinnımi místy
+    // Kontrola, jestli je vstup validnÃ­ ÄÃ­slo s moÅ¾nÃ½mi desetinnÃ½mi mÃ­sty
     if (!/^\d+(\.\d+)?$/.test(amount)) {
         return false;
     }
 
     const amountNumber = parseFloat(amount);
 
-    // Kontrola, jestli je èíslo vìtší ne 0
+    // Kontrola, jestli je ÄÃ­slo vÄ›tÅ¡Ã­ neÅ¾ 0
     if (amountNumber <= 0) {
         return false;
     }
@@ -71,7 +71,7 @@ function isMessageValid(message) {
         return false;
     }
 
-    const regex = /^[a-zA-Z0-9áèïéìíòóøšúùıÁÈÏÉÌÍÒÓØŠÚÙİ\s\.,;:()\-_\/]+$/;
+    const regex = /^[a-zA-Z0-9Ã¡ÄÄÃ©Ä›Ã­ÅˆÃ³Å™Å¡Å¥ÃºÅ¯Ã½Å¾ÃÄŒÄÃ‰ÄšÃÅ‡Ã“Å˜Å Å¤ÃšÅ®ÃÅ½\s\.,;:()\-_\/]+$/;
 
     if (!regex.test(message)) {
         return false;

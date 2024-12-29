@@ -10,25 +10,25 @@
         <img src="./images/logo.png" class="logo" alt="RB Logo"/>
     </div>
     <div class="title">
-        Zadávání hromadnıch plateb
+        ZadÃ¡vÃ¡nÃ­ hromadnÃ½ch plateb
     </div>
 
     <div id="runningContainer">
         <div class="runningTitle">
-            Zadávání plateb
+            ZadÃ¡vÃ¡nÃ­ plateb
         </div>
         <div class="runningInfo">
             <span id="currentCounter">0</span> / <span id="totalCount">0</span>
         </div>
         <div class="runningStopButtonContainer">
-            <button class="stopButton">Zrušit</button>
+            <button class="stopButton">ZruÅ¡it</button>
         </div>
     </div>
 
     <div id="doneContainer">
         Hotovo<br/><br/>
         <button id="resetButton" class="button">
-            Zpìt
+            ZpÄ›t
         </button>
     </div>
 
@@ -36,8 +36,8 @@
         <div class="steps-container">
             <div class="step">
                 <div class="step-number">1</div>
-                <div class="step-title">Pøíprava plateb</div>
-                <p class="step-description">Pøipravte si platby v Excel nebo podobném tabulkovém programu podle
+                <div class="step-title">PÅ™Ã­prava plateb</div>
+                <p class="step-description">PÅ™ipravte si platby v Excel nebo podobnÃ©m tabulkovÃ©m programu podle
                     vzoru</p>
                 <p class="step-description">
                     <a href="./vzor.xlsx">vzor plateb</a>
@@ -45,32 +45,32 @@
             </div>
             <div class="step">
                 <div class="step-number">2</div>
-                <div class="step-title">Vytvoøte novou manuální hromadnou platbu</div>
-                <p class="step-description">V RB bankovnictví kliknìte nahoøe na platby a v levém menu úètu
-                    úplnì na konci na Hromadné platby. Zde by jste mìli vidìt monost <strong>Manuální hromadná
-                        platba</strong>. Zde vytvoøte novou hromadnou platbu.</p>
+                <div class="step-title">VytvoÅ™te novou manuÃ¡lnÃ­ hromadnou platbu</div>
+                <p class="step-description">V RB bankovnictvÃ­ kliknÄ›te nahoÅ™e na platby a v levÃ©m menu ÃºÄtu
+                    ÃºplnÄ› na konci na HromadnÃ© platby. Zde by jste mÄ›li vidÄ›t moÅ¾nost <strong>ManuÃ¡lnÃ­ hromadnÃ¡
+                        platba</strong>. Zde vytvoÅ™te novou hromadnou platbu.</p>
             </div>
 
-            <!-- Další kroky by následovaly podobnì... -->
+            <!-- DalÅ¡Ã­ kroky by nÃ¡sledovaly podobnÄ›... -->
             <div class="step">
                 <div class="step-number">2</div>
-                <div class="step-title">Zadání plateb</div>
+                <div class="step-title">ZadÃ¡nÃ­ plateb</div>
                 <ul>
                     <li>
-                        V excelu oznaète všechny pøipravené platby vèetnì názvù sloupcù na prvním øádku
+                        V excelu oznaÄte vÅ¡echny pÅ™ipravenÃ© platby vÄetnÄ› nÃ¡zvÅ¯ sloupcÅ¯ na prvnÃ­m Å™Ã¡dku
                     </li>
                     <li>
-                        Zkopírujte platby (ctrl + c)
+                        ZkopÃ­rujte platby (ctrl + c)
                     </li>
                     <li>
-                        Vlote platby do tohoto textového pole (ctrl + v)
+                        VloÅ¾te platby do tohoto textovÃ©ho pole (ctrl + v)
                     </li>
                 </ul>
 
                 <textarea id="inputData" class="input"></textarea>
 
                 <p id="note" class="note">
-                    Poèet plateb: <span id="count">0</span>
+                    PoÄet plateb: <span id="count">0</span>
                 </p>
 
                 <p id="error" class="error">

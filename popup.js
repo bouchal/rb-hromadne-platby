@@ -80,19 +80,19 @@ function parseInputData(dataString) {
 
     const headers = lines[0].split("\t").map((i) => i)
 
-    if (headers.indexOf('ÚÈET') === -1 || headers.indexOf('ÈÁSTKA') === -1) {
-        showError("Hlavièka ÚÈET a ÈÁSTKA jsou povinné na prvním øádku")
+    if (headers.indexOf('ÃšÄŒET') === -1 || headers.indexOf('ÄŒÃSTKA') === -1) {
+        showError("HlaviÄka ÃšÄŒET a ÄŒÃSTKA jsou povinnÃ© na prvnÃ­m Å™Ã¡dku")
         return
     }
 
     const columnIndexes = {
-        bankAccount: headers.indexOf('ÚÈET'),
-        amount: headers.indexOf("ÈÁSTKA"),
+        bankAccount: headers.indexOf('ÃšÄŒET'),
+        amount: headers.indexOf("ÄŒÃSTKA"),
         vs: headers.indexOf("VS"),
         cs: headers.indexOf("KS"),
         ss: headers.indexOf("SS"),
-        message: headers.indexOf('ZPRÁVA'),
-        note: headers.indexOf('POZNÁMKA')
+        message: headers.indexOf('ZPRÃVA'),
+        note: headers.indexOf('POZNÃMKA')
     }
 
     const payments = []
@@ -109,7 +109,7 @@ function parseInputData(dataString) {
             }
         } catch (e) {
             isError = true
-            showError(`<strong>Chyba na øádku ${i}</strong><br />${e.message}`)
+            showError(`<strong>Chyba na Å™Ã¡dku ${i}</strong><br />${e.message}`)
             break;
         }
     }

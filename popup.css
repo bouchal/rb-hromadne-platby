@@ -142,6 +142,11 @@ body, html {
     font-size: 14px;
 }
 
+.step-alert {
+    color: darkorange;
+    font-size: 14px;
+}
+
 .note {
     font-size: 14px;
     color: #434343;

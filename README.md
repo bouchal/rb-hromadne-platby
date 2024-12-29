@@ -24,7 +24,7 @@
 ## 📋 Použití
 
 1. Přihlaste se do internetového bankovnictví Raiffeisenbank a vytvořte novou **Manuální Hromadnou platbu** pod záložkou Platby.
-2. Připravte si seznam plateb podle vzorové šablony (soubor [vzor.xlsx](vzor.xlsx)).
+2. Připravte si seznam plateb podle vzorové šablony (soubor [./src/vzor.xlsx](./src/vzor.xlsx)).
 3. Klikněte na ikonu rozšíření v prohlížeči.
 4. Postupujte podle následujících kroků:
     - Nahrajte nebo vložte seznam plateb.

@@ -4,6 +4,7 @@ const countEl = document.getElementById("count")
 const inputEl = document.getElementById("inputData")
 const buttonEl = document.getElementById('startButton')
 const resetButtonEl = document.getElementById("resetButton")
+const stopButtonEl = document.querySelector('.stopButton');
 
 const inputContainerEl = document.getElementById("inputContainer")
 const runningContainerEl = document.getElementById("runningContainer")
@@ -156,6 +157,13 @@ resetButtonEl.addEventListener("click", async function () {
     inputEl.value = ""
     showInputContainer()
 })
+
+stopButtonEl.addEventListener('click', async function () {
+    await sendMessageToContentScript({
+        action: "forceStop"
+    });
+    showInputContainer();
+});
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if (typeof message.action === "undefined") {

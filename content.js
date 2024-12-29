@@ -36,7 +36,9 @@ chrome.runtime.onMessage.addListener(
                 sendResponse(state)
                 return true
             case "forceStop":
+                resetState();
                 state.forceStop = true
+                sendState().then()
                 return
             case "reset":
                 resetState()
